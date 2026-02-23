@@ -1,0 +1,329 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=League+Spartan:wght@100..900&display=swap');
+
+
+.theme-1 {
+/* backgrounds */
+--main-background:hsl(222, 26%, 31%);
+--toggle-keypad-background: hsl(223, 31%, 20%);
+--screen-background: hsl(224, 36%, 15%);
+--num-key-background: hsl(0, 0%, 90%);
+--num-key-background-active: hsl(0, 0%, 100%);
+--del-reset-key: hsl(225, 21%, 49%);
+--del-reset-key-active: hsl(223, 41%, 73%);
+--equal-key-toggle: hsl(6, 63%, 50%);
+--equal-key-toggle-active: hsl(6, 93%, 67%);
+/* key-shadows */
+--num-key-shadow: hsl(28, 16%, 65%);
+--del-reset-shadow: hsl(224, 28%, 35%);
+--equal-key-shadow: hsl(6, 70%, 34%);
+/* text */
+--key-text:hsl(221, 14%, 31%);
+--light-text:hsl(0, 100%, 100%);
+}
+
+.theme-2 {
+/* backgrounds */
+--main-background:hsl(0, 0%, 90%);
+--toggle-keypad-background: hsl(0, 5%, 81%);
+--screen-background: hsl(0, 0%, 93%);
+--num-key-background:hsl(0, 0%, 90%);
+--num-key-background-active:hsl(0, 0%, 100%);
+--del-reset-key: hsl(185, 42%, 37%);
+--del-reset-key-active: hsl(185, 41%, 56%);
+--equal-key-toggle:  hsl(25, 98%, 40%);
+--equal-key-toggle-active: hsl(25, 100%, 61%);
+/* key-shadows */
+--num-key-shadow:hsl(35, 11%, 61%);
+--del-reset-shadow: hsl(185, 58%, 25%);
+--equal-key-shadow:hsl(25, 99%, 27%);
+/* text */
+--key-text:hsl(60, 10%, 19%);
+--light-text:hsl(0, 100%, 100%);
+}
+
+.theme-3 {
+/* backgrounds */
+--main-background:hsl(268, 75%, 9%);
+--toggle-keypad-background:hsl(268, 71%, 12%);
+--screen-background: hsl(268, 71%, 12%);
+--num-key-background: hsl(268, 47%, 21%);
+--num-key-background-active: hsl(268, 54%, 44%) ;
+--del-reset-key:hsl(281, 89%, 26%);
+--del-reset-key-active:hsl(280, 56%, 44%);
+--equal-key-toggle: hsl(176, 100%, 44%);
+--equal-key-toggle-active:hsl(177, 100%, 79%);
+/* key-shadows */
+--num-key-shadow:hsl(290, 70%, 36%);
+--del-reset-shadow: hsl(285, 91%, 52%);
+--equal-key-shadow:hsl(177, 92%, 70%);
+/* text */
+--key-text:  hsl(52, 100%, 62%);
+--light-text: hsl(0, 100%, 100%);
+--equal-key-text:hsl(198, 20%, 13%);
+}
+
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "League Spartan", sans-serif;
+} 
+
+
+body {
+  display: grid;
+  place-items: center;
+  font-family: "League Spartan", sans-serif;
+  align-content: start;
+  padding-top: 1rem; 
+  min-height: 100vh;
+  background: var(--main-background);
+  transition: background-color 0.7s ease, color 0.7s ease;
+}
+
+
+.calc-container {
+  width:100%;
+  max-width: 420px;
+  display: grid;
+  padding: 1.5rem; 
+}
+
+
+.title-toggle-container {
+  width: 100%;
+  display: flex;
+  justify-content:space-between ;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+h1 {
+  color: var(--light-text);
+  justify-self: start;
+  flex: 1;
+}
+
+.theme-title {
+  text-transform: uppercase;
+  color:var(--light-text);
+  font-size:.8rem;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  padding-right: 1.7rem;
+  padding-top: 1.5rem; 
+}
+
+.toggle-section {
+  color: var(--light-text);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.theme-number {
+  letter-spacing: 18px;
+  width:80px;
+  display: flex;
+  justify-content: space-between;
+  font-size: .9rem;
+  font-weight: 700;
+  margin-bottom: 6px;
+  padding-left: 10px;
+}
+
+.toggle-background {
+  position: relative;
+  display: flex;
+  width: 80px;
+  height: 28px;
+  background:var(--toggle-keypad-background);;
+  border-radius: 50px;
+  padding: 4px;
+}
+
+.toggle-background input {
+  position: absolute;
+  opacity: 0; /* Hided default radio input */
+}
+
+.toggle-dot {
+  position: absolute;
+  left: 4px;
+  width:16px;
+  height: 16px;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  background: var(--equal-key-toggle);
+  top: 50%;
+  transform: translate(0%, -50%);
+  transition: transform 0.3s ease;
+}
+
+.toggle-background label {
+  flex: 1;              /* Spread labels evenly */
+  cursor: pointer;       /* Show pointer on hover */
+  height: 100%;          /* Match toggle height */
+}
+/* Slider position on input check*/
+.toggle-background input:nth-of-type(1):checked ~ .toggle-dot {
+  transform: translate(0, -50%);
+  
+}
+
+.toggle-background input:nth-of-type(2):checked ~ .toggle-dot {
+  transform: translate(24px, -50%);
+}
+
+.toggle-background input:nth-of-type(3):checked ~ .toggle-dot {
+  transform: translate(48px, -50%);
+}
+input:focus {
+  outline: none;
+}
+
+input#display {
+  width: 100%;
+  background: var(--screen-background);
+  border-radius: 10px;
+  padding: 2.3rem 2rem;
+  border: none;
+  margin-bottom: 1.5rem;
+  color: var(--light-text);
+  text-align: right;
+  font-size: 3.5rem;
+  font-weight: 600;
+}
+
+.calc-container .keyboard-container {
+  display: grid;
+  width: 100%;
+  gap:1rem; 
+  padding: 1.5rem;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  border-radius: 10px;
+  background-color:var(--toggle-keypad-background);
+}
+
+.keyboard-container button {
+  aspect-ratio: 1/1;
+  font-family: "League Spartan"sans-serif;  
+  min-width:4rem;
+}
+
+.keyboard-container >  button {
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: 2rem;
+  border: none;
+  cursor: pointer;
+}
+
+button:not([class]) {  
+  color:var(--key-text);
+  background: var(--num-key-background);
+  box-shadow: 0 4px 0 var(--num-key-shadow); 
+}
+
+button:not([class]):active {  
+  background: var(--num-key-background-active)
+}
+
+.keyboard-container .del-btn {
+  font-size: 1.2rem;
+  aspect-ratio: 1/1;
+}
+
+ .del-btn,
+ .reset-btn {
+  text-transform:uppercase;
+  background: var(--del-reset-key);
+  color: var(--light-text);
+  font-size:1rem;
+  box-shadow: 0 4px 0 var(--del-reset-shadow); 
+}
+
+ .del-btn:active,
+ .reset-btn:active {
+       background: var(--del-reset-key-active);
+ }
+
+ .equal-btn {
+   background: var(--equal-key-toggle); 
+   box-shadow: 0 4px 0 var(--equal-key-shadow); 
+} 
+
+.equal-btn:active,
+.toggle-dot:active {
+    background: var(--equal-key-toggle-active); 
+}
+
+.keyboard-container .reset-btn,
+.keyboard-container .equal-btn {
+  aspect-ratio: auto;
+  grid-column: span 2;
+  padding: 1rem 0;
+  font-size: 1.2rem;
+  color: var(--light-text);
+}
+
+  .theme-2 h1,
+  .theme-2 .theme-title,
+  .theme-2 .theme-number,
+  .theme-2 #display{
+    color: hsl(60, 10%, 19%);
+  }
+  .theme-3 h1,
+  .theme-3 .theme-title,
+  .theme-3 .theme-number,
+  .theme-3 #display {
+    color: hsl(52, 100%, 62%);
+  }
+.theme-3 button[class="equal-btn"]{
+  color:var(--equal-key-text) ;
+  font-size: 1.4rem;
+}
+
+
+/* |============ DESKTOP =============| */
+
+@media screen and (min-width: 500px){
+   body {
+     align-content: center;
+   }
+  .calc-container {
+    max-width: 540px;
+  }
+
+  #display {
+   padding: 3.5rem 0;
+  }
+
+.keyboard-container  {
+  gap: 1.3rem;
+}
+.calc-container .keyboard-container {
+
+  gap:1.5rem; 
+  padding: 2rem;
+
+}
+.keyboard-container button {
+  border-radius: 10px;
+  aspect-ratio: auto;
+  height: 3.4rem;  
+}
+
+ .keyboard-container .del-btn{
+  aspect-ratio: auto;
+ }
+
+ .keyboard-container .del-btn,
+ .keyboard-container .reset-btn,
+ .keyboard-container .equal-btn{
+   font-size: 1.4rem;
+  }
+}
+

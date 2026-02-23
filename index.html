@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="stylesheet" href="style.css">
+  <script defer src="script.js"></script>
+  <title>Frontend Mentor | Calculator app</title>
+
+ 
+</head>
+<body class="theme-1">
+
+<div class="calc-container"> 
+   
+<div class="title-toggle-container ">
+  <h1>calc</h1>
+   
+  <div class="theme-title">theme  </div>
+   
+      <div class="toggle-section">  
+
+          <div class="theme-number">123</div>
+           
+       
+  <div class="toggle-background">
+  <input id="option1" name="state" type="radio" value="1" checked />
+  <label for="option1"></label>
+
+  <input id="option2" name="state" type="radio" value="2" />
+  <label for="option2"></label>
+
+  <input id="option3" name="state" type="radio" value="3" />
+  <label for="option3"></label>
+
+  <!-- This div is for the sliding background/knob -->
+  <div class="toggle-dot"></div>
+</div>
+
+    </div>
+  </div>
+
+
+    <input id="display" type="text" readonly>
+
+       <div class="keyboard-container">
+           <button data-value="7">7</button>
+           <button data-value="8">8</button>
+           <button data-value="9">9</button>
+           <button data-type="del"class="del-reset del-btn">del</button>
+           <button data-value="4">4</button>
+           <button data-value="5">5</button>
+           <button data-value="6">6</button>
+           <button data-type="+">+</button>
+           <button data-value="1">1</button>
+           <button data-value="2">2</button> 
+           <button data-value="3">3</button>
+           <button data-type="-">-</button>
+           <button data-type=".">.</button>
+           <button data-value="0">0</button>
+           <button data-type="/">/</button>
+           <button data-type="x">x</button>
+           <button data-type="reset"class="del-reset reset-btn">reset</button>
+           <button data-type="="class="equal-btn">=</button>    
+       </div>
+    </div>
+
+ 
+</body>
+</html>
